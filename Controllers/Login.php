@@ -1,10 +1,10 @@
-<!--
+/*
 Project name and version: Blog.version_2 
 Module name and version: Module 2.version_1
 Programmer Name: Daniel Cutrara
 Date: 5/12/2019
 Synopsis: Added User login page and index page to Blog.  
- -->
+ */
  
  <?php
 
