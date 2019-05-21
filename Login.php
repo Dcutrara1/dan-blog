@@ -1,23 +1,16 @@
-/*
-Project name and version: Blog.version_2 
-Module name and version: Module 2.version_1
-Programmer Name: Daniel Cutrara
-Date: 5/12/2019
-Synopsis: Added User login page and index page to Blog.  
- */
- 
  <?php
+/*
+Project name and version: Blog.version_3
+Module name and version: Module 3.version_1
+Programmer Name: Daniel Cutrara
+Date: 5/19/2019
+Synopsis: Create a new blog post, capture the new post and store in the database, 
+and implement a simple language filter 
+ */
 
-$host = 'us-cdbr-iron-east-02.cleardb.net';
-$username = 'bd4f97ffd852e1';
-$password = '6b182168';
-$database = 'heroku_91ac43a3f6024e6';
-
-$con = mysqli_connect($host, $username, $password, $database);
-if(mysqli_error($con))
-{
-    die("Connection Failed: " . mysqli_connect_error());
-}
+ // Connect to database
+ require('myfuncs.php');
+ $con = dbConnect();
 
 // create short variable names
 $username = mysqli_real_escape_string($con, $_POST['username']);
@@ -33,7 +26,7 @@ if(empty(trim($password)))
     die('The Password is a required field and cannot be blank.<br>');
 }
 
-$query = "SELECT * FROM user WHERE USERNAME = '$username'";
+$query = "SELECT * FROM user WHERE email = '$username'";
 
 $result = mysqli_query($con, $query);
 
@@ -43,9 +36,11 @@ if (mysqli_affected_rows($con) > 1 )
 {
     echo 'There are multiple users have registered <br>';
 }
-else if($password == $row['PASSWORD'])
+else if($password == $row['password'])
 {
-    echo 'Login was successful <br>';
+    echo 'Login successful <br>';
+    saveUserId($row['id']); // Save User ID in the Session
+    echo '<a href="addPostView.php">continue</a>';
 }
 else
 {
