@@ -1,11 +1,11 @@
 <?php
 /*
- Project name and version: Blog.version_3
- Module name and version: Module 3.version_1
+ Project name and version: Blog.version_6
+ Module name and version: Module 6.version_1
  Programmer Name: Daniel Cutrara
- Date: 5/19/2019
- Synopsis: Create a new blog post, capture the new post and store in the database,
- and implement a simple language filter
+ Date: 6/02/2019
+ Synopsis: Create the page that displays the content of the blog site. 
+ Create a management interface for the blog administrator to manage user roles and permissions.
  */
 
 //Get database connection
@@ -39,6 +39,5 @@ else
     
     else 
        $_SESSION["AddPostErrorMessage"] = "Post was NOT added to database.";
-       header('Location: addPostView.php');
-            
+       header('Location: addPostView.php');        
 ?>

@@ -7,11 +7,12 @@
  Synopsis: Create the page that displays the content of the blog site. 
  Create a management interface for the blog administrator to manage user roles and permissions.
  -->
-
+ 
 <html>
 <head>
-<title>Dan's Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
 <style>
 	a { text-decoration: none; display: inline-block; padding: 8px 16px; }
 	a:hover { background-color: #ddd; color: black; }
@@ -19,22 +20,17 @@
 	.next { background-color: #4CAF50; color: white; }
 	.round { border-radius: 50%; }
 	
-	fieldset { width: 20%; border: 2px solid black; } 
+	fieldset { width: 33%; border: 2px solid black; } 
 	legend { font-weight: bold; font-size: 125%; } 
 	label { width: 125px; float: left; text-align: left; font-weight: bold; } 
 	input { border: 1px solid #000; padding: 3px; } 
 	button { margin-top: 12px; } 
 </style>
-</head>
 <body>
-<h2>Dan's Blog</h2>
 <fieldset>
-<legend>Home Page</legend>
-<h3>Users Login / New Users Register</h3>
-
-<a href= "login.html" class="next">&laquo; Login</a>
-<a href="adminRegister.html" class="previous">Admin</a>
-<a href="register.html" class="next">Register &raquo;</a>
-</fieldset>
+	<legend>Admin Management</legend> 	
+	<a href="crud.php" class="previous">&laquo; Blog Page Administration</a>
+	<a href="userManager.php" class="next">Blog User Adminstration &raquo;</a>		
+</fieldset> 
 </body>
-</html> 
+</html>

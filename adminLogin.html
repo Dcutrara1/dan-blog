@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+ Project name and version: Blog.version_6
+ Module name and version: Module 6.version_1
+ Programmer Name: Daniel Cutrara
+ Date: 6/02/2019
+ Synopsis: Create the page that displays the content of the blog site. 
+ Create a management interface for the blog administrator to manage user roles and permissions.
+ -->
+ 
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
+<style 
+type="text/css"> 
+fieldset { width: 35%; border: 2px solid black; } 
+legend { font-weight: bold; font-size: 125%; } 
+label { width: 125px; float: left; text-align: left; font-weight: bold; } 
+input { border: 1px solid #000; padding: 3px; } 
+button { margin-top: 12px; } 
+</style>
+<body>
+	<form action="adminLogin.php" method="post">
+	<fieldset>
+	<legend>Admin User Login</legend> 
+		<table style="border: 0px;"> 
+		<tr style="background: #cccccc;"> 
+			<tr> 
+			<td>UserName (Email address)</td> 
+			<td><input type="text" name="username" id="username" size="20"
+  			maxlength="20" /></td> 
+		</tr>
+		<tr> 
+			<td>Password</td> 
+			<td><input type="password" name="password" id="password" size="20"
+  			maxlength="20" /></td> 
+		</tr>
+		<tr>
+			<td colspan="1" style="text-align: center;">
+			<input type="submit" value="Admin User Login" />
+			<input type="button" value="Home Page" onclick="location='index.html'" />
+			</td> 
+		</tr> 
+		</table> 
+	</fieldset>
+	</form>
+</body>
+</html>

@@ -1,4 +1,12 @@
 <html>
+<!-- 
+Project name and version: Blog.version_6
+ Module name and version: Module 6.version_1
+ Programmer Name: Daniel Cutrara
+ Date: 6/02/2019
+ Synopsis: Create the page that displays the content of the blog site. 
+ Create a management interface for the blog administrator to manage user roles and permissions.
+ -->
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Add Post</title>
@@ -7,10 +15,11 @@
 		<form action="AddPostController.php" method="post">
 			<input type="text" placeholder="Title" name="title"/>
 			<br>
-			<textarea name="post" rows="10" cols="30" placeholder="Blog Post"></textarea> 
+			<textarea name="post" rows="25" cols="50" placeholder="Blog Post"></textarea> 
 			<br>
 			
-			<input type="submit" name="addPost" value="Add Post"/>
+			<input type="submit" name="add Post" value="Add Post"/>
+			<input type="button" value="View Blog" onclick="location='blogView.php'" />
 		</form> 		
 <?php
 session_start();

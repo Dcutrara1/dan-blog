@@ -21,9 +21,9 @@ input { border: 1px solid #000; padding: 3px; }
 button { margin-top: 12px; } 
 </style>
 <body>
-	<form action="Registration.php" method="post">
+	<form action="adminRegistration.php" method="post">
 		<fieldset>
-		<legend>User Registration</legend>
+		<legend>Admin Registration</legend>
 		<table style="border: 0px;">
 			<tr style="background: #cccccc;">
 			</tr>
@@ -50,16 +50,22 @@ button { margin-top: 12px; }
     			<td><input type="password" name="Password" id="Password" size="20"
         		maxlength="20" /></td>
  			</tr>
- 			
+				
 			<tr>
-        		<td 
-        		colspan="1" style="text-align: center;">
-    			<input type="submit" value="Register" />
-    			<input type="button" value="Home Page" onclick="location='index.html'" />
+				<td>Admin Key</td>
+				<td><input type="text" name="AdminKey" size="10"></td>
+			</tr>
+        
+    		<tr>
+        		<td colspan="1" style="text-align: center;">
+    			<input type="submit" name="CreateAdmin" value="Create Admin User"/></td>
+    			<td><input type="button" value="Home Page" onclick="location='index.html'" />
     			</td>
     		</tr>
 		</table>
 		</fieldset>
+		<br>
+		<input type="button" value="Admin User Login" onclick="location='adminLogin.html'" />
 	</form>
 </body>
 </html>

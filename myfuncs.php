@@ -1,20 +1,20 @@
 <?php
 /*
-Project name and version: Blog.version_3
-Module name and version: Module 3.version_1
-Programmer Name: Daniel Cutrara
-Date: 5/19/2019
-Synopsis: Create a new blog post, capture the new post and store in the database, 
-and implement a simple language filter 
+ Project name and version: Blog.version_6
+ Module name and version: Module 6.version_1
+ Programmer Name: Daniel Cutrara
+ Date: 6/02/2019
+ Synopsis: Create the page that displays the content of the blog site. 
+ Create a management interface for the blog administrator to manage user roles and permissions.
  */
  
 function dbConnect()
 {
     global $con;
-    $host = 'us-cdbr-iron-east-02.cleardb.net';
-    $username = 'bd4f97ffd852e1';
-    $password = '6b182168';
-    $database = 'heroku_91ac43a3f6024e6';
+    $host = 'dan-blog-mysqldbserver.mysql.database.azure.com';
+    $username = 'mysqldbuser@dan-blog-mysqldbserver';
+    $password = 'BlogPass1';
+    $database = 'dan-blog';
     
     $con = mysqli_connect($host, $username, $password, $database);
     if(mysqli_error($con))
@@ -49,4 +49,35 @@ function forbiddenWords($post)
     }
     return false; 
 }
+
+function getAllPosts()
+{
+    $posts = array();
+    $con = dbConnect();
+    $sql = "Select * from posts";
+    $result = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_array($result))
+    {
+        $posts[] = array($row['id'], $row['posttitle'], $row['userid'], $row['post']);
+    }
+    mysqli_close();
+    return $posts;
+}
+
+function getUsersPosts()
+{
+    $posts = array();
+    $con = dbConnect();
+    $user = mysqli_escape_string($con, getUser());
+    $sql = "Select * from posts where userid='$user'";
+    $result = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_array($result))
+    {
+        $posts[] = array($row['id'], $row['posttitle'], $row['userid'], $row['post']);
+    }
+    mysqli_close();
+    return $posts;
+}
+
+
 ?>

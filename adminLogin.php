@@ -1,6 +1,6 @@
- <?php
+<?php 
 /*
- Project name and version: Blog.version_6
+Project name and version: Blog.version_6
  Module name and version: Module 6.version_1
  Programmer Name: Daniel Cutrara
  Date: 6/02/2019
@@ -8,9 +8,9 @@
  Create a management interface for the blog administrator to manage user roles and permissions.
  */
 
- // Connect to database
- require('myfuncs.php');
- $con = dbConnect();
+// Connect to database
+require('myfuncs.php');
+$con = dbConnect();
 
 // create short variable names
 $username = mysqli_real_escape_string($con, $_POST['username']);
@@ -40,14 +40,22 @@ if (mysqli_affected_rows($con) > 1 )
 }
 else if($password == $row['password'])
 {
-    echo 'Login Successful! <br>';
-    saveUserId($row['id']); // Save User ID in the Session
-    header('Refresh: 2;userView.php');
+    if($row['admin'] == 1)
+    {
+        echo 'Admin User Login Successful! <br>';
+        saveUserId($row['id']); // Save User ID in the Session
+        header('Refresh: 2;adminManager.php');
+    }
+    else 
+    {
+        echo 'User not recognized as an Admin User. Login failed! <br>';
+        header('Refresh: 4;index.html');
+    }
 }
 else
 {
     echo 'Login failed <br>';
-    echo '<a href="login.html">Try Again</a>';
+    echo '<a href="adminLogin.html">Try Again</a>';
 }
 $con->close();
 ?>

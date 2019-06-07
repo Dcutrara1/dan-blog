@@ -17,19 +17,28 @@ $firstname = mysqli_real_escape_string($con, $_POST['FirstName']);
 $lastname = mysqli_real_escape_string($con, $_POST['LastName']);
 $email = mysqli_real_escape_string($con, $_POST['Email']);
 $password = mysqli_real_escape_string($con, $_POST['Password']);
+$adminkey = ($_POST['AdminKey']);
  
-$sql = "INSERT INTO user (firstname, lastname, email, password) 
-VALUES ('$firstname', '$lastname', '$email','$password')";
-    if(!mysqli_query($con, $sql))
-    {
-        echo 'The name was not added.<br>';
-    }
-    else
-    {
-        echo 'Name inserted.<br>';
-        
-    } 
-    $con->close();    
+if($adminkey == "blog")
+{
+    $admin = True;
+
+    $sql = "INSERT INTO user (firstname, lastname, email, password, admin) 
+    VALUES ('$firstname', '$lastname', '$email','$password', '$admin')";
+        if(!mysqli_query($con, $sql))
+        {
+            echo 'The admin was not added.<br>';
+        }
+        else
+        {
+            echo 'Admin inserted.<br>';
+        }   
+        $con->close();
+}
+else
+{
+    echo 'Invalid Admin Key. The admin was not added.<br>';
+}
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,6 +51,6 @@ VALUES ('$firstname', '$lastname', '$email','$password')";
 </style>
 <body>
 <a href= "index.html" class="next">&laquo; Home</a>
-<a href="login.html" class="next">Login &raquo;</a>
+<a href="adminLogin.html" class="next">Admin Login &raquo;</a>
 </body>
 </html>
