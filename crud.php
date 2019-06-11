@@ -1,11 +1,10 @@
 <?php
 /*
-Project name and version: Blog.version_6
- Module name and version: Module 6.version_1
+ Project name and version: Blog.version_7
+ Module name and version: Module 7.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/02/2019
- Synopsis: Create the page that displays the content of the blog site. 
- Create a management interface for the blog administrator to manage user roles and permissions.
+ Date: 6/09/2019
+ Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
  */
 ?>
 
@@ -39,6 +38,7 @@ if (isset($_GET['edit']))
 <body>
     <?php $results = mysqli_query($db, "SELECT * FROM posts"); ?>
   <fieldset>
+   <h2 align="center">Dan's Blog</h2>
   <table>
   	<thead>
 		<tr>
@@ -77,7 +77,7 @@ if (isset($_GET['edit']))
     
     <?php endif ?>
   <!--To retrieve the database records and display them on the page, add this code. -->  
-
+		<h3>Add a Blog Post!</h3>
 		<div class="input-group">
 			<label>Title</label>
 			<input type="text" name="title" value="">
@@ -97,6 +97,7 @@ if (isset($_GET['edit']))
 		</div>
         
         <div>
+         <h4>Edit Blog Post</h4>
              <!--/ newly added field -->
              <input type="hidden" name="id" value="<?php echo $id; ?>">
              <!--/ modified Field -->
@@ -114,8 +115,8 @@ if (isset($_GET['edit']))
      	</p> 
      	<fieldset>
      	<legend>Admin Management</legend> 
-     	<a href="index.html" class="btn">Home Page</a>
-		<a href="userManager.php" class="btn">Blog User Adminstration</a>	
+     	<input class="btn" type="button" value="Main Menu" onclick="location='index.html'" />
+     	<input class="btn" type="button" value="Blog User Adminstration" onclick="location='userManager.php'" />
 		</fieldset>           
 	</form>
 	</fieldset>

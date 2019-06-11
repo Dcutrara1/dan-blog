@@ -1,11 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_6
- Module name and version: Module 6.version_1
+ Project name and version: Blog.version_7
+ Module name and version: Module 7.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/02/2019
- Synopsis: Create the page that displays the content of the blog site. 
- Create a management interface for the blog administrator to manage user roles and permissions.
+ Date: 6/09/2019
+ Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
  */
 
 require('myfuncs.php');
@@ -42,7 +41,7 @@ if(isset($_POST['save']))
 	if(forbiddenWords($textarea))
 	{
 	    $_SESSION["AddPostErrorMessage"] = "There was one or more words you used that are forbidden.";
-	    header('Refresh: 2;userView.php');
+	    header('Refresh: 2;crud.php');
 	    exit;
 	}
 	else
@@ -75,8 +74,8 @@ if(isset($_POST['save']))
 if(isset($_POST['update']))
 {
     $id = mysqli_real_escape_string($con, $_POST['id']);
-	$sql = "UPDATE posts SET userid = '$userid' title='$title' 
-    author='$author' textarea='$textarea' where id='$id'";
+	$sql = "UPDATE posts SET userid = '$userid', title='$title', 
+    author='$author', textarea='$textarea' where id='$id'";
 	mysqli_query($con, $sql);
 	mysqli_close($con);
 	header('Location: crud.php');

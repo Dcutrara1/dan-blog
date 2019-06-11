@@ -1,11 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_6
- Module name and version: Module 6.version_1
+ Project name and version: Blog.version_7
+ Module name and version: Module 7.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/02/2019
- Synopsis: Create the page that displays the content of the blog site. 
- Create a management interface for the blog administrator to manage user roles and permissions.
+ Date: 6/09/2019
+ Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
  */
  
 function dbConnect()
@@ -58,7 +57,7 @@ function getAllPosts()
     $result = mysqli_query($con, $sql);
     while($row = mysqli_fetch_array($result))
     {
-        $posts[] = array($row['id'], $row['posttitle'], $row['userid'], $row['post']);
+        $posts[] = array($row['id'], $row['userid'], $row['title'], $row['author'], $row['textarea']);
     }
     mysqli_close();
     return $posts;
@@ -73,11 +72,42 @@ function getUsersPosts()
     $result = mysqli_query($con, $sql);
     while($row = mysqli_fetch_array($result))
     {
-        $posts[] = array($row['id'], $row['posttitle'], $row['userid'], $row['post']);
+        $posts[] = array($row['id'], $row['userid'], $row['title'], $row['author'], $row['textarea']);
     }
     mysqli_close();
     return $posts;
 }
 
-
+function getPostsByTitle($searhCriteria)
+{
+    $posts = array();
+    $con = dbConnect();
+    $search = mysqli_real_escape_string($con, $searhCriteria);
+    $query = "SELECT * FROM posts WHERE title LIKE '%$search%'";
+    $result = mysqli_query($con, $query);
+    
+    While($row = mysqli_fetch_array($result))
+    {
+        $posts[] = array($row["id"], $row["title"], $row["author"], $row["textarea"]);
+    }
+    
+    mysqli_close($con);
+    return $posts;
+}
+function getPostsBySearch($searhCriteria)
+{
+    $posts = array();
+    $con = dbConnect();
+    $search = mysqli_real_escape_string($con, $searhCriteria);
+    $query = "SELECT * FROM posts WHERE title LIKE '%$search%' or author LIKE '%$search%' or textarea LIKE '%$search%'";
+    $result = mysqli_query($con, $query);
+    
+    While($row = mysqli_fetch_array($result))
+    {
+        $posts[] = array($row["id"], $row["title"], $row["author"], $row["textarea"]);
+    }
+    
+    mysqli_close($con);
+    return $posts;
+}
 ?>

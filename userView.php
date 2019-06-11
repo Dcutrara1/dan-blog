@@ -1,11 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_6
- Module name and version: Module 6.version_1
+ Project name and version: Blog.version_7
+ Module name and version: Module 7.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/02/2019
- Synopsis: Create the page that displays the content of the blog site. 
- Create a management interface for the blog administrator to manage user roles and permissions.
+ Date: 6/09/2019
+ Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
  */
 ?>
 
@@ -17,11 +16,13 @@ $db = dbConnect();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CRUD: Create, Update, Delete PHP MySQL</title>
+	<title>Blog PostsL</title>
         <link rel="stylesheet" type="text/css" href="style.css">
 </head>   
 <body>
+<fieldset>
  <?php $results = mysqli_query($db, "SELECT * FROM posts"); ?>
+ <h2 align="center">Dan's Blog</h2>
   <table>
 	<thead>
 		<tr>
@@ -49,10 +50,9 @@ $db = dbConnect();
 			unset($_SESSION['message']);
 		?>
 	</div>
-    
     <?php endif ?>
   <!--To retrieve the database records and display them on the page, add this code. -->  
-
+		 <h3>Add a Blog Post!</h3>
 		<div class="input-group">
 			<label>Title</label>
 			<input type="text" name="title" value="">
@@ -70,7 +70,10 @@ $db = dbConnect();
         
         <p>      
 	       <button class="btn" type="submit" name="save" >Save</button>
+	       <input class="btn" type="button" value="search blog" onclick="location='search.html'" />
+	       <input class="btn" type="button" value="Main Menu" onclick="location='index.html'" />
      	</p>           
 	</form>
+	</fieldset>
    </body>
 </html>

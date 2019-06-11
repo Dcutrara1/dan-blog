@@ -1,11 +1,10 @@
 <html>
 <!-- 
-Project name and version: Blog.version_6
- Module name and version: Module 6.version_1
+ Project name and version: Blog.version_7
+ Module name and version: Module 7.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/02/2019
- Synopsis: Create the page that displays the content of the blog site. 
- Create a management interface for the blog administrator to manage user roles and permissions.
+ Date: 6/09/2019
+ Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
  -->
 	<head>
 		<meta charset="ISO-8859-1">
