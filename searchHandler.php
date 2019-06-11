@@ -40,7 +40,7 @@ else
     include('_displayPosts.php');
 }
 ?>
-<input class="btn" type="button" value="Blog Posts" onclick="location='userview.php'" />
+<input class="btn" type="button" value="Blog Posts" onclick="location='userView.php'" />
 <input class="btn" type="button" value="Search Again" onclick="location='search.html'" />
 <input class="btn" type="button" value="Main Menu" onclick="location='index.html'" />
 </fieldset>
