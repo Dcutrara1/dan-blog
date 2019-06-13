@@ -110,4 +110,38 @@ function getPostsBySearch($searhCriteria)
     mysqli_close($con);
     return $posts;
 }
+
+function getPostsById($searhCriteria)
+{
+    $posts = array();
+    $con = dbConnect();
+    $search = mysqli_real_escape_string($con, $searhCriteria);
+    $query = "SELECT * FROM posts WHERE id = '$search'";
+    $result = mysqli_query($con, $query);
+    
+    While($row = mysqli_fetch_array($result))
+    {
+        $posts[] = array($row["id"], $row["title"], $row["author"], $row["textarea"]);
+    }
+    
+    mysqli_close($con);
+    return $posts;
+}
+
+function getCommentsByPid($searhCriteria)
+{
+    $postsComments = array();
+    $con = dbConnect();
+    $search = mysqli_real_escape_string($con, $searhCriteria);
+    $query = "SELECT * FROM comments WHERE postid = '$search'";
+    $result = mysqli_query($con, $query);
+    
+    While($row = mysqli_fetch_array($result))
+    {
+        $postsComments[] = array($row["comment"], $row["star_rating"]);
+    }
+    
+    mysqli_close($con);
+    return $postsComments;
+}
 ?>

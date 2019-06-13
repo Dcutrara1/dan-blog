@@ -16,7 +16,7 @@
 	// initialize blog_post table variables 
 	$title = "";
 	$author = "";
-        $textarea = "";
+    $textarea = "";
 	$id = 0;
 	$update = false;
 
