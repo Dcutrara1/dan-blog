@@ -34,11 +34,29 @@ if (isset($_GET['edit']))
 <head>
 	<title>CRUD: Create, Update, Delete PHP MySQL</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
+.topnav { overflow: hidden; background-color: #333; } /* Style the top navigation bar */
+.topnav a { float: left; display: block; color: #f2f2f2; text-align: center; 
+			padding: 14px 16px; text-decoration: none; } /* Style the topnav links */ 
+.topnav a:hover { background-color: #ddd; color: black; } /* Change color on hover */ 
+</style>
 </head> 
 <body>
-    <?php $results = mysqli_query($db, "SELECT * FROM posts"); ?>
+	<div class="header">
+  	<h1>Dan's Blog</h1>
+  	<p>Where you can read the latest and the greatest!</p>
+	</div>
+
+	<div class="topnav">
+  	<a href="userManager.php">Blog User Adminstration</a>
+  	<a href="index.html">Home Page</a>
+	</div>
+    
+  <?php $results = mysqli_query($db, "SELECT * FROM posts"); ?>
   <fieldset>
-   <h2 align="center">Dan's Blog</h2>
   <table>
   	<thead>
 		<tr>
@@ -110,14 +128,11 @@ if (isset($_GET['edit']))
            <?php if ($update == true): ?>
 	       <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
            <?php else: ?>
+           <br>
 	       <button class="btn" type="submit" name="save" >Save</button>
            <?php endif ?>
      	</p> 
-     	<fieldset>
-     	<legend>Admin Management</legend> 
-     	<input class="btn" type="button" value="Main Menu" onclick="location='index.html'" />
-     	<input class="btn" type="button" value="Blog User Adminstration" onclick="location='userManager.php'" />
-		</fieldset>           
+     	       
 	</form>
 	</fieldset>
    </body>

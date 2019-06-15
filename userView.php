@@ -16,13 +16,34 @@ $db = dbConnect();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blog PostsL</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+	<title>Blog Posts</title>
+        
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
+.topnav { overflow: hidden; background-color: #333; } /* Style the top navigation bar */
+.topnav a { float: left; display: block; color: #f2f2f2; text-align: center; 
+			padding: 14px 16px; text-decoration: none; } /* Style the topnav links */ 
+.topnav a:hover { background-color: #ddd; color: black; } /* Change color on hover */ 
+</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>   
 <body>
 <fieldset>
  <?php $results = mysqli_query($db, "SELECT * FROM posts"); ?>
- <h2 align="center">Dan's Blog</h2>
+<div id="example1">
+</div>
+<div class="header">
+  <h1>Dan's Blog</h1>
+  <p>Where you can read the latest and the greatest!</p>
+</div>
+
+<div class="topnav">
+  <a href="search.html">Blog Search</a>
+  <a href="adminLogin.html">Admin User Login</a>
+  <a href="index.html">Home Page</a>
+</div>
   <table>
 	<thead>
 		<tr>
@@ -73,8 +94,6 @@ $db = dbConnect();
         
         <p>      
 	       <button class="btn" type="submit" name="save" >Save</button>
-	       <input class="btn" type="button" value="search blog" onclick="location='search.html'" />
-	       <input class="btn" type="button" value="Main Menu" onclick="location='index.html'" />
      	</p>           
 	</form>
 	</fieldset>
