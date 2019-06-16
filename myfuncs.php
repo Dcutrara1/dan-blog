@@ -144,4 +144,9 @@ function getCommentsByPid($searhCriteria)
     mysqli_close($con);
     return $postsComments;
 }
+
+function deletePost()
+{
+    confirm("Click Confirm to Delete Post");
+}
 ?>

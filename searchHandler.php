@@ -46,7 +46,9 @@ $posts = getPostsBySearch($searchCriteria);
 
 if(empty(trim($searchCriteria)))
 {
-    die('Search criteria is required and cannot be blank.<br>');
+    echo 'Search criteria is required and cannot be blank.<br>';
+    header('Refresh: 5; search.html');
+    exit;
 }
 
 if ($posts == null)

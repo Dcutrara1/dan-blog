@@ -17,6 +17,19 @@ $postid = mysqli_real_escape_string($con, $_POST['pid']);
 
 if(isset($_POST['postComment']))	
 {
+    if(empty(trim($comment)))
+    {
+        echo 'A comment is a required field and cannot be blank.<br>';
+        header('Refresh: 3; comment.php?pid='.$_POST["pid"]);
+        exit();
+    }
+    if(empty(trim($star)))
+    {
+        echo 'The star rating is a required field and cannot be blank.<br>';
+        header('Refresh: 3; comment.php?pid='.$_POST["pid"]);
+        exit();
+    }
+    
 	$sql = "INSERT INTO comments (comment, star_rating, userid, postid)
 	VALUES ('$comment', '$star', '$userid', '$postid');";
     

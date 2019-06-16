@@ -25,9 +25,8 @@ else
     $userid = mysqli_real_escape_string($con, getUserId());
 }
 
-
 if(isset($_GET['del']))
-{
+{  
     $id = mysqli_real_escape_string($con, $_GET['del']);
     $sql = "Delete from posts where id='$id'";
     mysqli_query($con, $sql);
@@ -74,6 +73,25 @@ if(isset($_POST['save']))
 }
 if(isset($_POST['update']))
 {
+    if(empty(trim($title)))
+    {
+        echo 'The Title is a required field for a blog post and cannot be blank.<br>';
+        header('Refresh: 2; crud.php');
+        exit();
+    }
+    if(empty(trim($author)))
+    {
+        echo 'The Author is a required field for a blog post and cannot be blank.<br>';
+        header('Refresh: 2; crud.php');
+        exit();
+    }
+    if(empty(trim($textarea)))
+    {
+        echo 'The Text Area is a required field for a blog post and cannot be blank.<br>';
+        header('Refresh: 2; crud.php');
+        exit();
+    }
+    
     $id = mysqli_real_escape_string($con, $_POST['id']);
 	$sql = "UPDATE posts SET userid = '$userid', title='$title', 
     author='$author', textarea='$textarea' where id='$id'";

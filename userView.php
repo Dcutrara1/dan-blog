@@ -19,6 +19,7 @@ $db = dbConnect();
 	<title>Blog Posts</title>
         
 <style>
+.header img { float: left; width: 90px; height: 66px; background: #82bcfd; }
 * { box-sizing: border-box; }
 body { margin: 0; }
 .header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
@@ -35,7 +36,7 @@ body { margin: 0; }
 <div id="example1">
 </div>
 <div class="header">
-  <h1>Dan's Blog</h1>
+  <h1><IMG SRC="Blogger-Logo.jpg">Dan's Blog</h1>
   <p>Where you can read the latest and the greatest!</p>
 </div>
 
@@ -43,6 +44,7 @@ body { margin: 0; }
   <a href="search.html">Blog Search</a>
   <a href="adminLogin.html">Admin User Login</a>
   <a href="index.html">Home Page</a>
+   <a href="index.html">Log Out</a>
 </div>
   <table>
 	<thead>

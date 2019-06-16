@@ -17,7 +17,22 @@ $lastname = mysqli_real_escape_string($con, $_POST['LastName']);
 $email = mysqli_real_escape_string($con, $_POST['Email']);
 $password = mysqli_real_escape_string($con, $_POST['Password']);
 $adminkey = ($_POST['AdminKey']);
- 
+
+if(empty(trim($firstname)))
+{ die('The First Name is a required field and cannot be blank.<br>'); }
+
+if(empty(trim($lastname)))
+{ die('The Last Name is a required field and cannot be blank.<br>'); }
+
+if(empty(trim($email)))
+{ die('The email is a required field and cannot be blank.<br>'); }
+
+if(empty(trim($password)))
+{ die('The password is a required field and cannot be blank.<br>');}
+
+if(empty(trim($adminkey)))
+{ die('The adminKey is a required field and cannot be blank.<br>');}
+
 if($adminkey == "blog")
 {
     $admin = True;

@@ -37,6 +37,7 @@ if (isset($_GET['edit']))
 	<title>User Manager: Create, Update, Delete PHP MySQL</title>
         <link rel="stylesheet" type="text/css" href="style.css">
 <style>
+.header img { float: left; width: 90px; height: 66px; background: #82bcfd; }
 * { box-sizing: border-box; }
 body { margin: 0; }
 .header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
@@ -48,13 +49,17 @@ body { margin: 0; }
 </head> 
 <body>
 	<div class="header">
-  	<h1>Dan's Blog</h1>
+  	<h1><IMG SRC="Blogger-Logo.jpg">Dan's Blog</h1>
   	<p>Where you can read the latest and the greatest!</p>
 	</div>
 
 	<div class="topnav">
   	<a href="crud.php">Blog Post Administration</a>
+  	<a href="search.html">Blog Search</a>
+  	<a href="userView.php">User View</a>
   	<a href="index.html">Home Page</a>
+  	<a href="index.html">Log Out</a>
+  	
 	</div>
     <?php $results = mysqli_query($db, "SELECT * FROM user"); ?>
   <fieldset>
@@ -81,7 +86,8 @@ body { margin: 0; }
 				<a href="userManager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
 			</td>
 			<td>
-				<a href="managerServer.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+				<a href="managerServer.php?del=<?php echo $row['id']; ?>" class="del_btn"
+				 onclick="return confirm('Are you sure you want to delete this user?');"> Delete</a>
 			</td>
 		</tr>
 	<?php 

@@ -43,7 +43,7 @@ else if($password == $row['password'])
 else
 {
     echo 'Login failed <br>';
-    echo '<a href="login.html">Try Again</a>';
+    header('Refresh: 3;login.html');
 }
 $con->close();
 ?>

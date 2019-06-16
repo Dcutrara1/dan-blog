@@ -25,6 +25,25 @@ else
     $userid = mysqli_real_escape_string($con, getUserId());
 }
 
+if(empty(trim($title)))
+{ 
+    echo 'The Title is a required field for a blog post and cannot be blank.<br>';
+    header('Refresh: 2; userView.php');
+    exit();
+}
+if(empty(trim($author)))
+{ 
+    echo 'The Author is a required field for a blog post and cannot be blank.<br>'; 
+    header('Refresh: 2; userView.php');
+    exit();
+}
+if(empty(trim($textarea)))
+{ 
+    echo 'The Text Area is a required field for a blog post and cannot be blank.<br>'; 
+    header('Refresh: 2; userView.php');
+    exit();
+}
+
 if(isset($_GET['del']))
 {
     $id = mysqli_real_escape_string($con, $_GET['del']);
@@ -32,7 +51,7 @@ if(isset($_GET['del']))
     mysqli_query($con, $sql);
     mysqli_close($con);
     echo 'Post was deleted from the database. <br>';
-    header('Location: userView.php');
+    header('Refresh: 2; userView.php');
     exit;
 }
 
@@ -52,7 +71,9 @@ if(isset($_POST['save']))
  	   $_SESSION["AddPostErrorMessage"] = "Your post was too long, start over.";
  	   header('Refresh: 2;userView.php');
  	   exit;    
-	}  
+	}
+	
+	
 
 	$sql = "INSERT INTO posts (userid, title, author, textarea)
 	VALUES ('$userid', '$title', '$author', '$textarea');";
