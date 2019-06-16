@@ -1,10 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page accpts input from admin user to update, delete, or add a Post to blog site. 
  */
 
 require('myfuncs.php');
@@ -32,7 +32,8 @@ if(isset($_GET['del']))
     $sql = "Delete from posts where id='$id'";
     mysqli_query($con, $sql);
     mysqli_close($con);
-    header('Location: crud.php');
+    echo 'Post was deleted from the database. <br>';
+    header('Refresh: 2; crud.php');
     exit;
 }
 
@@ -62,12 +63,12 @@ if(isset($_POST['save']))
   	  {
   	      $_SESSION["AddPostErrorMessage"] = "Post was added to database.";
   	      echo 'Post was added to database. <br>';
-  	      header('Refresh: 3;crud.php');
+  	      header('Refresh: 2;crud.php');
   	  }
   	  else
    	 {
    	     $_SESSION["AddPostErrorMessage"] = "Post was NOT added to database.";
-   	     header('Refresh: 5;crud.php');
+   	     header('Refresh: 2;crud.php');
    	 }
 	exit();
 }
@@ -78,7 +79,8 @@ if(isset($_POST['update']))
     author='$author', textarea='$textarea' where id='$id'";
 	mysqli_query($con, $sql);
 	mysqli_close($con);
-	header('Location: crud.php');
+	echo 'Records were updated successfully. <br>';
+	header('Refresh: 2;crud.php');
 	exit();
 }
 ?>

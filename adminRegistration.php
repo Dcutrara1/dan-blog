@@ -1,10 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page that reviews credentials input to determine whether to grant admin access or not. 
  */  
 
 // Connect to database
@@ -26,17 +26,19 @@ if($adminkey == "blog")
     VALUES ('$firstname', '$lastname', '$email','$password', '$admin')";
         if(!mysqli_query($con, $sql))
         {
-            echo 'The admin was not added.<br>';
+            echo 'The admin user was not added.<br>';
         }
         else
         {
-            echo 'Admin inserted.<br>';
+            echo 'New Admin user registered.<br>';
+            header('Refresh: 2; adminLogin.html');
         }   
         $con->close();
 }
 else
 {
-    echo 'Invalid Admin Key. The admin was not added.<br>';
+    echo 'Invalid Admin Key. The admin user was not added.<br>';
+    header('Refresh: 2; adminRegister.html');
 }
 ?>
 <html>
@@ -49,7 +51,6 @@ else
 	.round { border-radius: 50%; }
 </style>
 <body>
-<a href= "index.html" class="next">&laquo; Home</a>
-<a href="adminLogin.html" class="next">Admin Login &raquo;</a>
+
 </body>
 </html>

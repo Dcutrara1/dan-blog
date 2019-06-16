@@ -1,10 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page for admin user to edit or delete blog posts from users. 
  */
 ?>
 
@@ -125,10 +125,11 @@ body { margin: 0; }
 	    
 	    </div>
         <p>
+        	<br>
            <?php if ($update == true): ?>
 	       <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
            <?php else: ?>
-           <br>
+           
 	       <button class="btn" type="submit" name="save" >Save</button>
            <?php endif ?>
      	</p> 

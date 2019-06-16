@@ -1,20 +1,14 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page accpts input that updates, deletes, or adds a user to blog site. 
  */
 
 require('myfuncs.php');
 $con = dbConnect();
-
-if(!isset($_POST['search']))
-{
-    header('Location: userManager.php');
-    exit();
-}
 
 if(!isset($_POST['update']))
 {
@@ -31,9 +25,7 @@ else
     $email = mysqli_real_escape_string($con, $_POST["updateEmail"]);
     $password = mysqli_real_escape_string($con, $_POST["updatePassword"]);
     $admin = mysqli_real_escape_string($con, $_POST["updateAdmin"]);
-   
 }
-
 
 if(isset($_GET['del']))
 {
@@ -41,7 +33,8 @@ if(isset($_GET['del']))
     $sql = "Delete from user where id='$id'";
     mysqli_query($con, $sql);
     mysqli_close($con);
-    header('Location: userManager.php');
+    echo 'User was deleted from the database. <br>';
+    header('Refresh: 2;userManager.php');
     exit();
 }
 
@@ -51,7 +44,6 @@ if(isset($_POST['save']))
 	VALUES ('$firstname', '$lastname', '$email', '$password', '$admin');";
         
         if(mysqli_query($con, $sql))
-        
         {
             $_SESSION["AddPostErrorMessage"] = "Post was added to database.";
             echo 'Post was added to database. <br>';
@@ -67,23 +59,12 @@ if(isset($_POST['save']))
 if(isset($_POST['update']))
 {
     $id = mysqli_real_escape_string($con, $_POST['id']);
-    
     $sql = "UPDATE user SET firstname='$firstname', lastname='$lastname',
     email='$email', password='$password', admin='$admin' where id='$id'";
-
-    if(mysqli_query($con, $sql))
-    {
-        $_SESSION["AddPostErrorMessage"] = "Records were updated successfully.";
-        echo 'Post was added to database. <br>';
-        header('Refresh: 2;userManager.php');
-    } 
-    else
-    {
-        $_SESSION["AddPostErrorMessage"] = "Unable to update records.";
-        header('Refresh: 2;userManager.php');
-    }
-    mysqli_close($con);
-    header('Location: userManager.php');
+    mysqli_query($con, $sql);
+    mysqli_close($con);  
+    echo 'Records were updated successfully. <br>';  
+    header('Refresh: 2;userManager.php');
     exit();
 }
 ?>

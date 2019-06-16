@@ -1,10 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page that reviews credentials input to determine whether to grant user access or not. 
  */  
 
 // Connect to database
@@ -21,26 +21,13 @@ $sql = "INSERT INTO user (firstname, lastname, email, password)
 VALUES ('$firstname', '$lastname', '$email','$password')";
     if(!mysqli_query($con, $sql))
     {
-        echo 'The name was not added.<br>';
+        echo 'The user was not added.<br>';
     }
     else
     {
-        echo 'Name inserted.<br>';
+        echo 'Blog User added to database.<br>';
         
     } 
     $con->close();    
+    header('Refresh: 2;login.html');
 ?>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-	a { text-decoration: none; display: inline-block; padding: 8px 16px; }
-	a:hover { background-color: #ddd; color: black; }
-	.previous { background-color: #f1f1f1; color: black; }
-	.next { background-color: #4CAF50; color: white; }
-	.round { border-radius: 50%; }
-</style>
-<body>
-<a href= "index.html" class="next">&laquo; Home</a>
-<a href="login.html" class="next">Login &raquo;</a>
-</body>
-</html>

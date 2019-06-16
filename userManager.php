@@ -1,10 +1,10 @@
 <?php
 /*
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: PHP page allows admin user to update, delete, or add a Post to blog site. 
  */
 ?>
 
@@ -34,7 +34,7 @@ if (isset($_GET['edit']))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CRUD: Create, Update, Delete PHP MySQL</title>
+	<title>User Manager: Create, Update, Delete PHP MySQL</title>
         <link rel="stylesheet" type="text/css" href="style.css">
 <style>
 * { box-sizing: border-box; }
@@ -81,7 +81,7 @@ body { margin: 0; }
 				<a href="userManager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
 			</td>
 			<td>
-				<a href="userServer.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+				<a href="managerServer.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
 			</td>
 		</tr>
 	<?php 

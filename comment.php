@@ -1,6 +1,10 @@
 <html>
 <!-- 
-...
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
+ Programmer Name: Daniel Cutrara
+ Date: 6/16/2019
+ Synopsis: PHP page that allows user to add a comment to a current blog post and give a star rating. 
  -->
 <?php 
 require 'myfuncs.php';
@@ -12,7 +16,6 @@ if(isset($_GET["pid"]))
     $posts = getPostsById($post);
     $comments = getCommentsByPid($_GET["pid"]);
 }
-
 ?>
 
 </html>
@@ -68,8 +71,8 @@ body { margin: 0; }
 	<thead>
 		<tr>
 			<th></th>
-			<th>Rating</th>
-			<th colspan="2">Comment</th>
+			<th>Star Rating</th>
+			<th>Comment</th>
 		</tr>
 	</thead>
 	
@@ -115,16 +118,12 @@ body { margin: 0; }
                 echo '<span class="fa fa-star checked"></span>';
                 echo '<span class="fa fa-star checked"></span>';
 	    }
-        
-        
         echo "</td><td>"
         .$comments[$i][0]."</td>"."</tr>";
 	}
 	?>
 </table>	
-		
-		<form action="commentHandler.php" method="post"> 
-			
+		<form action="commentHandler.php" method="post">
    			<br>
 			<textarea name="comment" rows="5" cols="75" placeholder="Add a comment: "></textarea> 
 			<br><br>
@@ -142,7 +141,6 @@ body { margin: 0; }
   			<?php echo  '<input type="hidden" name="pid" value="'.$postid.'" />'; ?>
   			<input type="submit" class="comment_btn" name="postComment" value="Post Comment"/>
 		</form><br>
-		
 	</fieldset>
 	</body>
 </html> 

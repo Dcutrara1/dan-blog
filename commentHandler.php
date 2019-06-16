@@ -1,6 +1,10 @@
 <?php
 /*
-...
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
+ Programmer Name: Daniel Cutrara
+ Date: 6/16/2019
+ Synopsis: PHP Controller that adds a comment submited by user to SQL database. 
  */
 
 require('myfuncs.php');

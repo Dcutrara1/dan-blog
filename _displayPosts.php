@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <!-- 
- Project name and version: Blog.version_7
- Module name and version: Module 7.version_1
+ Project name and version: Blog.version_Final
+ Module name and version: Module Final.version_1
  Programmer Name: Daniel Cutrara
- Date: 6/09/2019
- Synopsis: Create the page that allows an authorized user to search for posts using multiple criteria.
+ Date: 6/16/2019
+ Synopsis: HTML page designed to display blog posts from database when called in application. 
  -->
 <head>
 	<title>Blog Posts</title>
