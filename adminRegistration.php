@@ -21,35 +21,35 @@ $adminkey = ($_POST['AdminKey']);
 if(empty(trim($firstname)))
 { 
     Echo ('The First Name is a required field and cannot be blank.<br>'); 
-    header('Refresh: 2; adminRegistration.php');
+    header('Refresh: 2; adminRegister.html');
     exit();
 }
 
 if(empty(trim($lastname)))
 { 
     Echo('The Last Name is a required field and cannot be blank.<br>'); 
-    header('Refresh: 2; adminRegistration.php');
+    header('Refresh: 2; adminRegister.html');
     exit();
 }
 
 if(empty(trim($email)))
 { 
     Echo('The email is a required field and cannot be blank.<br>'); 
-    header('Refresh: 2; adminRegistration.php');
+    header('Refresh: 2; adminRegister.html');
     exit();
 }
 
 if(empty(trim($password)))
 { 
     Echo('The password is a required field and cannot be blank.<br>');
-    header('Refresh: 2; adminRegistration.php');
+    header('Refresh: 2; adminRegister.html');
     exit();
 }
 
 if(empty(trim($adminkey)))
 { 
     Echo('The adminKey is a required field and cannot be blank.<br>');
-    header('Refresh: 2; adminRegistration.php');
+    header('Refresh: 2; adminRegister.html');
     exit();
 }
 
@@ -62,7 +62,7 @@ if($adminkey == "blog")
         if(!mysqli_query($con, $sql))
         {
             echo 'The admin user was not added.<br>';
-            header('Refresh: 2; adminRegistration.php');
+            header('Refresh: 2; adminRegister.html');
             exit();
         }
         else
