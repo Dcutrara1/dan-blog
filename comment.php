@@ -26,9 +26,10 @@ if(isset($_GET["pid"]))
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+.header img { float: left; width: 90px; height: 65px; background: #82bcfd; }
 * { box-sizing: border-box; }
 body { margin: 0; }
-.header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
+.header { background-color: white; padding: 1px; text-align: center; } /* Style the header */
 .topnav { overflow: hidden; background-color: #333; } /* Style the top navigation bar */
 .topnav a { float: left; display: block; color: #f2f2f2; text-align: center; 
 			padding: 14px 16px; text-decoration: none; } /* Style the topnav links */ 
@@ -37,7 +38,7 @@ body { margin: 0; }
 </style>
 	<body>
 	<div class="header">
-  	<h1>Dan's Blog</h1>
+  	<h1><IMG SRC="Blogger-Logo.jpg">Dan's Blog</h1>
   	<p>Where you can read the latest and the greatest!</p>
 	</div>
 
@@ -45,6 +46,7 @@ body { margin: 0; }
   	<a href="search.html">Blog Search</a>
   	<a href="userView.php">View Blog</a>
   	<a href="index.html">Home Page</a>
+  	<a href="index.html">Log Out</a>
 	</div>
 	<fieldset>
 	<legend>Add a Comment</legend>

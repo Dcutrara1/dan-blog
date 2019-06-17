@@ -12,7 +12,7 @@
 <style>
 * { box-sizing: border-box; }
 body { margin: 0; }
-.header { background-color: #82bcfd; padding: 1px; text-align: center; } /* Style the header */
+.header { background-color: white; padding: 1px; text-align: center; } /* Style the header */
 .topnav { overflow: hidden; background-color: #333; } /* Style the top navigation bar */
 .topnav a { float: left; display: block; color: #f2f2f2; text-align: center; 
 			padding: 14px 16px; text-decoration: none; } /* Style the topnav links */ 

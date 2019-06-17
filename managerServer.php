@@ -27,6 +27,37 @@ else
     $admin = mysqli_real_escape_string($con, $_POST["updateAdmin"]);
 }
 
+if(empty(trim($firstname)))
+{
+    echo 'The First Name is a required field and cannot be blank.<br>';
+    header('Refresh: 2; userManager.php');
+    exit();
+}
+if(empty(trim($lastname)))
+{
+    echo 'The Last Name is a required field and cannot be blank.<br>';
+    header('Refresh: 2; userManager.php');
+    exit();
+}
+if(empty(trim($email)))
+{
+    echo 'The email is a required field and cannot be blank.<br>';
+    header('Refresh: 2; userManager.php');
+    exit();
+}
+if(empty(trim($password)))
+{
+    echo 'The password is a required field and cannot be blank.<br>';
+    header('Refresh: 2; userManager.php');
+    exit();
+}
+if(empty(trim($admin)))
+{
+    echo 'The admin Key is a required field and cannot be blank.<br>';
+    header('Refresh: 2; userManager.php');
+    exit();
+}
+
 if(isset($_GET['del']))
 {
     $id = mysqli_real_escape_string($con, $_GET['del']);
@@ -57,7 +88,7 @@ if(isset($_POST['save']))
         exit();
 }
 if(isset($_POST['update']))
-{
+{   
     $id = mysqli_real_escape_string($con, $_POST['id']);
     $sql = "UPDATE user SET firstname='$firstname', lastname='$lastname',
     email='$email', password='$password', admin='$admin' where id='$id'";
