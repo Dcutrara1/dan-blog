@@ -19,19 +19,39 @@ $password = mysqli_real_escape_string($con, $_POST['Password']);
 $adminkey = ($_POST['AdminKey']);
 
 if(empty(trim($firstname)))
-{ die('The First Name is a required field and cannot be blank.<br>'); }
+{ 
+    Echo ('The First Name is a required field and cannot be blank.<br>'); 
+    header('Refresh: 2; adminRegistration.php');
+    exit();
+}
 
 if(empty(trim($lastname)))
-{ die('The Last Name is a required field and cannot be blank.<br>'); }
+{ 
+    Echo('The Last Name is a required field and cannot be blank.<br>'); 
+    header('Refresh: 2; adminRegistration.php');
+    exit();
+}
 
 if(empty(trim($email)))
-{ die('The email is a required field and cannot be blank.<br>'); }
+{ 
+    Echo('The email is a required field and cannot be blank.<br>'); 
+    header('Refresh: 2; adminRegistration.php');
+    exit();
+}
 
 if(empty(trim($password)))
-{ die('The password is a required field and cannot be blank.<br>');}
+{ 
+    Echo('The password is a required field and cannot be blank.<br>');
+    header('Refresh: 2; adminRegistration.php');
+    exit();
+}
 
 if(empty(trim($adminkey)))
-{ die('The adminKey is a required field and cannot be blank.<br>');}
+{ 
+    Echo('The adminKey is a required field and cannot be blank.<br>');
+    header('Refresh: 2; adminRegistration.php');
+    exit();
+}
 
 if($adminkey == "blog")
 {
@@ -42,11 +62,14 @@ if($adminkey == "blog")
         if(!mysqli_query($con, $sql))
         {
             echo 'The admin user was not added.<br>';
+            header('Refresh: 2; adminRegistration.php');
+            exit();
         }
         else
         {
             echo 'New Admin user registered.<br>';
             header('Refresh: 2; adminLogin.html');
+            exit();
         }   
         $con->close();
 }

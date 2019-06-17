@@ -17,14 +17,16 @@ $password = mysqli_real_escape_string($con, $_POST['password']);
 
 if(empty(trim($username)))
 {
-    die('The Username is a required field and cannot be blank.<br>');
-    header('Refresh: 5;login.html');
+    echo('The Username is a required field and cannot be blank.<br>');
+    header('Refresh: 3;adminLogin.html');
+    exit();
 }
 
 if(empty(trim($password)))
 {
-    die('The Password is a required field and cannot be blank.<br>');
-    header('Refresh: 5;login.html');
+    echo('The Password is a required field and cannot be blank.<br>');
+    header('Refresh: 3;adminLogin.html');
+    exit();
 }
 
 $query = "SELECT * FROM user WHERE email = '$username'";
@@ -44,11 +46,13 @@ else if($password == $row['password'])
         echo 'Admin User Login Successful! <br>';
         saveUserId($row['id']); // Save User ID in the Session
         header('Refresh: 2;crud.php');
+        exit();
     }
     else 
     {
         echo 'User not recognized as an Admin User. Login failed! <br>';
         header('Refresh: 4;index.html');
+        exit();
     }
 }
 else
